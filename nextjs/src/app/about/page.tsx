@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import SocialLink from "@/components/social-link";
+import SocialLink, { SocialLinkType } from "@/components/social-link";
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/sanity/image";
 import { useSettings } from "@/contexts/SettingsContext";
 
-const renderSocialLink = (type: string, url: string) => (
+const renderSocialLink = (type: SocialLinkType, url: string) => (
   <SocialLink type={type} url={url} color="black" />
 );
 
@@ -27,8 +27,9 @@ export default function AboutPage() {
           </div>
           <div className="flex items-center gap-4">
             {settings.instagram &&
-              renderSocialLink("instagram", settings.instagram)}
-            {settings.email && renderSocialLink("email", settings.email)}
+              renderSocialLink(SocialLinkType.Instagram, settings.instagram)}
+            {settings.email &&
+              renderSocialLink(SocialLinkType.Email, settings.email)}
           </div>
         </div>
       </div>

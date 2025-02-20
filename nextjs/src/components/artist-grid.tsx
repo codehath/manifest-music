@@ -1,8 +1,8 @@
 // src/components/artist-grid.tsx
-import { ArtistCard } from "@/components/artist-card";
+import { ArtistCard, Artist } from "@/components/artist-card";
 
 interface ArtistGridProps {
-  artists: any[];
+  artists: Artist[];
 }
 
 export function ArtistGrid({ artists }: ArtistGridProps) {

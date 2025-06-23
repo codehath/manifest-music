@@ -41,6 +41,11 @@ export default defineType({
       title: 'Spotify',
       type: 'url',
     },
+    {
+      name: 'tiktok',
+      title: 'TikTok',
+      type: 'url',
+    },
     // Add more fields as needed, for example social media links or genres
     defineField({
       name: 'displayOrder', // You can call this whatever you like

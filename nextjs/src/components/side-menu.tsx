@@ -18,9 +18,9 @@ export function SideMenu() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <button className="flex items-center space-x-2 hover:opacity-70">
-          <Menu className="h-6 w-6" />
-          <span className="text-sm font-medium">MENU</span>
+        <button className="flex items-center hover:opacity-70">
+          <Menu className="h-8 w-8" />
+          {/* <span className="text-sm font-medium">MENU</span> Removed */}
         </button>
       </SheetTrigger>
       <SheetContent

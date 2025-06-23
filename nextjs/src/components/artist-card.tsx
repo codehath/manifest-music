@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { SiSpotify, SiInstagram } from "react-icons/si";
+import { SiSpotify, SiInstagram, SiTiktok } from "react-icons/si";
 import Link from "next/link";
 import { useNextSanityImage } from "next-sanity-image";
 import { client } from "@/sanity/client";
@@ -13,6 +13,7 @@ export interface Artist {
   image?: SanityImageSource;
   instagram?: string;
   spotify?: string;
+  tiktok?: string;
 }
 
 export function ArtistCard({ artist }: { artist: Artist }) {
@@ -53,6 +54,16 @@ export function ArtistCard({ artist }: { artist: Artist }) {
               className="transition-transform hover:scale-110"
             >
               <SiInstagram className="h-6 w-6" />
+            </Link>
+          )}
+          {artist.tiktok && (
+            <Link
+              href={artist.tiktok}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-transform hover:scale-110"
+            >
+              <SiTiktok className="h-6 w-6" />
             </Link>
           )}
         </div>

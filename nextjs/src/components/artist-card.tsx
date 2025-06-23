@@ -22,15 +22,29 @@ export function ArtistCard({ artist }: { artist: Artist }) {
     artist.image || { asset: { _ref: "" } }
   );
   return (
-    <div className="group relative">
+    // Add tabIndex to make the div focusable, allowing group-focus to work on tap
+    <div className="group relative" tabIndex={0}>
       <Image
         {...(artist.image
           ? imageProps
           : { src: "/placeholder.svg", width: 600, height: 400 })}
         alt={artist.name || "Artist"}
-        className="aspect-[3/2] w-full object-cover rounded-[20px] transition-all duration-300 group-hover:filter group-hover:blur-sm group-hover:brightness-50"
+        className="aspect-[3/2] w-full object-cover rounded-[20px] transition-all duration-300
+                   [@media(hover:hover)]:group-hover:filter [@media(hover:hover)]:group-hover:blur-sm
+                   group-focus:filter group-focus:blur-sm"
       />
-      <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10">
+      {/* Dimming overlay */}
+      <div
+        className="absolute inset-0 bg-black opacity-0
+                   [@media(hover:hover)]:group-hover:opacity-30
+                   group-focus:opacity-30
+                   transition-opacity duration-300 rounded-[20px]"
+        aria-hidden="true"
+      ></div>
+      <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-white opacity-0
+                   [@media(hover:hover)]:group-hover:opacity-100
+                   group-focus:opacity-100
+                   transition-opacity duration-300 z-10">
         <h3 className="mb-6 text-xl font-bold justify-center text-center">
           {artist.name || "Unknown Artist"}
         </h3>

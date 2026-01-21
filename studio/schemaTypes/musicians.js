@@ -42,6 +42,11 @@ export default defineType({
       type: 'url',
     },
     {
+      name: 'appleMusic',
+      title: 'Apple Music',
+      type: 'url',
+    },
+    {
       name: 'tiktok',
       title: 'TikTok',
       type: 'url',

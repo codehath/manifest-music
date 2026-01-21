@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { SiSpotify, SiInstagram, SiTiktok } from "react-icons/si";
+import { SiSpotify, SiInstagram, SiTiktok, SiApplemusic } from "react-icons/si";
 import Link from "next/link";
 import { useNextSanityImage } from "next-sanity-image";
 import { client } from "@/sanity/client";
@@ -13,13 +13,14 @@ export interface Artist {
   image?: SanityImageSource;
   instagram?: string;
   spotify?: string;
+  appleMusic?: string;
   tiktok?: string;
 }
 
 export function ArtistCard({ artist }: { artist: Artist }) {
   const imageProps = useNextSanityImage(
     client,
-    artist.image || { asset: { _ref: "" } }
+    artist.image || { asset: { _ref: "" } },
   );
   return (
     // Add tabIndex to make the div focusable, allowing group-focus to work on tap
@@ -41,10 +42,12 @@ export function ArtistCard({ artist }: { artist: Artist }) {
                    transition-opacity duration-300 rounded-[20px]"
         aria-hidden="true"
       ></div>
-      <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-white opacity-0
+      <div
+        className="absolute inset-0 flex flex-col items-center justify-center p-6 text-white opacity-0
                    [@media(hover:hover)]:group-hover:opacity-100
                    group-focus:opacity-100
-                   transition-opacity duration-300 z-10">
+                   transition-opacity duration-300 z-10"
+      >
         <h3 className="mb-6 text-xl font-bold justify-center text-center">
           {artist.name || "Unknown Artist"}
         </h3>
@@ -58,6 +61,16 @@ export function ArtistCard({ artist }: { artist: Artist }) {
               className="transition-transform hover:scale-110"
             >
               <SiSpotify className="h-6 w-6" />
+            </Link>
+          )}
+          {artist.appleMusic && (
+            <Link
+              href={artist.appleMusic}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-transform hover:scale-110"
+            >
+              <SiApplemusic className="h-6 w-6" />
             </Link>
           )}
           {artist.instagram && (

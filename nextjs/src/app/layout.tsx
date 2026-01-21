@@ -6,7 +6,7 @@ import type React from "react";
 
 export const metadata: Metadata = {
   title: "Manifest Music",
-  description: "Music Publishing • Management • Creative Services",
+  description: "Music Publishing • Management • Records",
 };
 
 export default function RootLayout({

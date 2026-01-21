@@ -1,4 +1,6 @@
-export default {
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
   name: 'musician',
   title: 'Musician',
   type: 'document',
@@ -39,6 +41,24 @@ export default {
       title: 'Spotify',
       type: 'url',
     },
+    {
+      name: 'appleMusic',
+      title: 'Apple Music',
+      type: 'url',
+    },
+    {
+      name: 'tiktok',
+      title: 'TikTok',
+      type: 'url',
+    },
     // Add more fields as needed, for example social media links or genres
+    defineField({
+      name: 'displayOrder', // You can call this whatever you like
+      title: 'Display Order',
+      type: 'number',
+      description:
+        'Enter a number to control the order this artist appears in lists. Lower numbers appear first.',
+      validation: (Rule) => Rule.required().integer().positive(), // Optional validation
+    }),
   ],
-}
+})

@@ -15,6 +15,7 @@ export interface Settings {
   about: PortableTextBlock[];
   instagram?: string;
   email: string;
+  spotify?: string;
 }
 
 const SettingsContext = createContext<Settings | null>(null);

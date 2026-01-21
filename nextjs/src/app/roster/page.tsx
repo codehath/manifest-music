@@ -1,21 +1,19 @@
+import { type SanityDocument } from "next-sanity";
 import { client } from "@/sanity/client";
 import { ArtistGrid } from "@/components/artist-grid";
-import { type SanityDocument } from "next-sanity";
 import { QUERIES } from "@/constants/queries";
-import { Title } from "@/components/title";
 
 const options = { next: { revalidate: 30 } };
 
-export default async function ProducerWriterPage() {
+export default async function IndexPage() {
   const artists = await client.fetch<SanityDocument[]>(
-    QUERIES.ARTISTS,
+    QUERIES.ALL,
     {},
     options
   );
 
   return (
-    <div className="container mx-auto">
-      <Title />
+    <div className="container mx-auto pb-8">
       <ArtistGrid artists={artists} />
     </div>
   );

@@ -14,10 +14,10 @@ export function Header() {
     : "/logos/manifest-crown-logo-black.svg";
 
   return (
-    <header className="px-4 py-6 md:px-6 lg:px-8">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background px-4 py-6 md:px-6 lg:px-8">
       <div className="container mx-auto">
         <div className="flex items-center justify-between space-y-4 md:flex-row md:items-center md:space-y-0">
-          <Link href="/all" className="flex items-center">
+          <Link href="/" className="flex items-center">
             <Image
               src={logoUrl}
               alt="Manifest Music Logo"

@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import SocialLink from "@/components/social-link";
+import SocialLink, { SocialLinkType } from "@/components/social-link";
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/sanity/image";
 import { useSettings } from "@/contexts/SettingsContext";
 
-const renderSocialLink = (type: string, url: string) => (
+const renderSocialLink = (type: SocialLinkType, url: string) => (
   <SocialLink type={type} url={url} color="black" />
 );
 
@@ -17,19 +17,19 @@ export default function AboutPage() {
     : "/logos/manifest-text-logo-black.svg";
 
   return (
-    <div className="container mx-auto md:py-20">
-      <div className="grid gap-20 lg:grid-cols-4">
-        {/* Left Column */}
-        <div className="space-y-16 lg:col-span-3">
-          <Image src={logoUrl} alt="Manifest Music" width={250} height={48} />
-          <div className="prose text-xl font-normal text-black">
-            <PortableText value={settings.about} />
-          </div>
-          <div className="flex items-center gap-4">
-            {settings.instagram &&
-              renderSocialLink("instagram", settings.instagram)}
-            {settings.email && renderSocialLink("email", settings.email)}
-          </div>
+    <div className="container flex items-center justify-center mx-auto px-4 py-24">
+      <div className="flex flex-col items-center justify-center space-y-16">
+        <Image src={logoUrl} alt="Manifest Music" width={250} height={48} />
+        <div className="prose text-xl font-normal text-black text-center">
+          <PortableText value={settings.about} />
+        </div>
+        <div className="flex items-center gap-4">
+          {settings.instagram &&
+            renderSocialLink(SocialLinkType.Instagram, settings.instagram)}
+          {settings.spotify &&
+            renderSocialLink(SocialLinkType.Spotify, settings.spotify)}
+          {settings.email &&
+            renderSocialLink(SocialLinkType.Email, settings.email)}
         </div>
       </div>
     </div>

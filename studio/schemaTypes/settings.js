@@ -4,7 +4,7 @@ const LOGO_DESCRIPTIONS = {
   3: 'Full Logo (small) - Compact version optimized for mobile devices and small spaces',
   4: 'Full logo (large) - Used as button on landing page',
   5: 'Wordmark logo black - Used on about page',
-  6: 'Wordmark logo white - Used in footer'
+  6: 'Wordmark logo white - Used in footer',
 }
 
 const createLogoField = (number) => ({
@@ -51,6 +51,11 @@ export default {
       title: 'Email',
       type: 'string',
       validation: (Rule) => Rule.required().email(),
+    },
+    {
+      name: 'spotify',
+      title: 'Spotify',
+      type: 'string',
     },
   ],
 }

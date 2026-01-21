@@ -1,8 +1,8 @@
 // src/components/artist-grid.tsx
-import { ArtistCard } from "@/components/artist-card";
+import { ArtistCard, Artist } from "@/components/artist-card";
 
 interface ArtistGridProps {
-  artists: any[];
+  artists: Artist[];
 }
 
 export function ArtistGrid({ artists }: ArtistGridProps) {
@@ -11,7 +11,7 @@ export function ArtistGrid({ artists }: ArtistGridProps) {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {artists.map((artist) => (
         <ArtistCard key={artist._id} artist={artist} />
       ))}

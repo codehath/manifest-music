@@ -18,9 +18,9 @@ export function SideMenu() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <button className="flex items-center space-x-2 hover:opacity-70">
-          <Menu className="h-6 w-6" />
-          <span className="text-sm font-medium">MENU</span>
+        <button className="flex items-center hover:opacity-70">
+          <Menu className="h-8 w-8" />
+          {/* <span className="text-sm font-medium">MENU</span> Removed */}
         </button>
       </SheetTrigger>
       <SheetContent
@@ -54,20 +54,11 @@ export function SideMenu() {
               </li>
               <li>
                 <Link
-                  href="/artists"
+                  href="/roster"
                   className="text-white/70 transition-colors hover:text-white"
                   onClick={() => setOpen(false)}
                 >
-                  ARTISTS
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/producer-writers"
-                  className="text-white/70 transition-colors hover:text-white"
-                  onClick={() => setOpen(false)}
-                >
-                  PRODUCERS & WRITERS
+                  ROSTER
                 </Link>
               </li>
               <li>
